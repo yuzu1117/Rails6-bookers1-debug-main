@@ -11,7 +11,6 @@ class RelationshipsController < ApplicationController
   end
 
   def index
-
   end
 
 end

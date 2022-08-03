@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
@@ -43,6 +44,8 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     @users = user.follower_user
   end
+  
+  
 
   protected
 
@@ -50,11 +53,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
-  def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user)
-    end
-  end
 
 end
